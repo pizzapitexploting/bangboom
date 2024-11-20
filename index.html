@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen SWF with Ruffle</title>
+    <script src="ruffle-selfhosted/ruffle.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Set to black or any preferred background color */
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #ruffle-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        object {
+            width: 100%;
+            height: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="ruffle-container">
+        <object 
+            type="application/x-shockwave-flash" 
+            data="Bang, Boom, Splat!.swf">
+            <param name="wmode" value="transparent">
+        </object>
+    </div>
+
+    <script>
+        // Automatically replace <object> or <embed> tags with Ruffle player
+        const ruffle = window.RufflePlayer.newest();
+        ruffle.configure({ 
+            // Optional: You can add Ruffle configuration options here 
+        });
+        window.RufflePlayer = ruffle;
+    </script>
+</body>
+</html>
